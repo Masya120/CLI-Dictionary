@@ -24,4 +24,10 @@ def getDef(w):
         return("Word not found.")
 
 
-print(getDef(word))
+output = getDef(word)
+
+if type(output) == list:
+    for item in output:
+        print(item)
+else:
+    print(output)
