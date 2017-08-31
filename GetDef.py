@@ -2,12 +2,12 @@
 
 import json
 from difflib import get_close_matches
+import sys
 
 data = json.load(open("data.json", "r"))
 
 dataKeys = data.keys()
 
-word = input("Type your word: ")
 
 def getDef(w):
 
@@ -25,11 +25,21 @@ def getDef(w):
     else:
         return("Word not found.")
 
+def printDef(output):
+    if type(output) == list:
+        print("Definition:")
+        for item in output:
+            print(item)
+    else:
+        print("Definiton:")
+        print(output)
 
-output = getDef(word)
 
-if type(output) == list:
-    for item in output:
-        print(item)
+if len(sys.argv) > 1:
+    word = sys.argv[1]
+    defAnswer = getDef(word)
+    printDef(defAnswer)
 else:
-    print(output)
+    word = input("Type your word: ")
+    defAnswer = getDef(word)
+    printDef(defAnswer)
