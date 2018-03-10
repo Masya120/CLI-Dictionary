@@ -23,7 +23,7 @@ def get_matches(word):
         elif user_response == "N" or user_response == "n":
             return "Word not found."
         else:
-            return "We didn't understand your entry"
+            return "Sorry. We didn't understand your entry"
 
 def print_def(output):
     if type(output) == list:
@@ -34,12 +34,12 @@ def print_def(output):
         print("Definiton:")
         print(output)
 
-
-if len(sys.argv) > 1:
-    asked_word = sys.argv[1]
-    def_answer = get_def(asked_word)
-    print_def(def_answer)
-else:
-    asked_word = input("Type your word: ")
-    def_answer = get_def(asked_word)
-    print_def(def_answer)
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        asked_word = sys.argv[1]
+        def_answer = get_def(asked_word)
+        print_def(def_answer)
+    else:
+        asked_word = input("Type your word: ")
+        def_answer = get_def(asked_word)
+        print_def(def_answer)
