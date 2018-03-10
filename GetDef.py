@@ -8,7 +8,7 @@ data = json.load(open("data.json", "r"))
 dataKeys = data.keys()
 
 
-def getDef(word):
+def get_def(word):
     word = word.lower()
     if word in data:
         return data[word]
@@ -23,7 +23,7 @@ def getDef(word):
     else:
         return("Word not found.")
 
-def printDef(output):
+def print_def(output):
     if type(output) == list:
         print("Definition:")
         for item in output:
@@ -35,9 +35,9 @@ def printDef(output):
 
 if len(sys.argv) > 1:
     asked_word = sys.argv[1]
-    def_answer = getDef(asked_word)
-    printDef(def_answer)
+    def_answer = get_def(asked_word)
+    print_def(def_answer)
 else:
     asked_word = input("Type your word: ")
-    def_answer = getDef(asked_word)
-    printDef(def_answer)
+    def_answer = get_def(asked_word)
+    print_def(def_answer)
