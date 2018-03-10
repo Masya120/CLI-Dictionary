@@ -5,19 +5,17 @@ from difflib import get_close_matches
 import sys
 
 data = json.load(open("data.json", "r"))
-
 dataKeys = data.keys()
 
 
-def getDef(w):
-
-    w = w.lower()
-    if w in data:
-        return data[w]
-    elif len(get_close_matches(w, dataKeys)) > 0:
-        yn = input("Did you mean %s instead? Enter Y if yes, or N if no: " % get_close_matches(w, dataKeys)[0])
+def getDef(word):
+    word = word.lower()
+    if word in data:
+        return data[word]
+    elif len(get_close_matches(word, dataKeys)) > 0:
+        yn = input("Did you mean %s instead? Enter Y if yes, or N if no: " % get_close_matches(word, dataKeys)[0])
         if yn == "Y" or yn == "y":
-            return data[get_close_matches(w, dataKeys)[0]]
+            return data[get_close_matches(word, dataKeys)[0]]
         elif yn == "N" or yn == "n":
             return("Word not found.")
         else:
@@ -36,10 +34,10 @@ def printDef(output):
 
 
 if len(sys.argv) > 1:
-    word = sys.argv[1]
-    defAnswer = getDef(word)
-    printDef(defAnswer)
+    asked_word = sys.argv[1]
+    def_answer = getDef(asked_word)
+    printDef(def_answer)
 else:
-    word = input("Type your word: ")
-    defAnswer = getDef(word)
-    printDef(defAnswer)
+    asked_word = input("Type your word: ")
+    def_answer = getDef(asked_word)
+    printDef(def_answer)
