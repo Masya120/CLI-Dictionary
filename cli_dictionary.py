@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-
+import sys
 import json
 from difflib import get_close_matches
-import sys
+
 
 data = json.load(open("data.json", "r"))
 dataKeys = data.keys()
