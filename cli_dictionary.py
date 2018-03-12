@@ -7,6 +7,9 @@ from difflib import get_close_matches
 data = json.load(open("data.json", "r"))
 dataKeys = data.keys()
 
+def main(word):
+    def_answer = get_def(word)
+    print_def(def_answer)
 
 def get_def(word):
     word = word.lower()
@@ -37,10 +40,6 @@ def print_def(output):
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
-        asked_word = sys.argv[1]
-        def_answer = get_def(asked_word)
-        print_def(def_answer)
+        main(sys.argv[1])
     else:
-        asked_word = input("Type your word: ")
-        def_answer = get_def(asked_word)
-        print_def(def_answer)
+        main(input("Type your word: "))
