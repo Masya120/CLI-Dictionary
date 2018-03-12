@@ -20,16 +20,17 @@ def get_matches(word):
         user_response = input("Did you mean %s instead? Enter Y if yes, or N if no: " % get_close_matches(word, dataKeys)[0])
         if user_response == "Y" or user_response == "y":
             return data[get_close_matches(word, dataKeys)[0]]
-        elif user_response == "N" or user_response == "n":
-            return "Word not found."
         else:
-            return "Sorry. We didn't understand your entry"
+            return "Sorry. Word not found."
+
 
 def print_def(output):
     if type(output) == list:
         print("Definition:")
         for item in output:
             print(item)
+    elif output == "Sorry. Word not found.":
+        print(output)
     else:
         print("Definiton:")
         print(output)
