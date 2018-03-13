@@ -17,5 +17,10 @@ class TestDictionary(unittest.TestCase):
             'Composed of three elements or parts.',
             'In mathematics, an ordered list of three elements.'])
 
+    def test_no_matches_found(self):
+        with patch('builtins.input', return_value='N'):
+            result = cli_dictionary.get_matches("tripleeee")
+            self.assertEqual(result, "Sorry. Word not found.")
+
 if __name__ == '__main__':
     unittest.main()
