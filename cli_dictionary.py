@@ -1,10 +1,11 @@
 #!/usr/bin/python3
+import os
 import sys
 import json
 from difflib import get_close_matches
 
-
-data = json.load(open("data.json", "r"))
+def_file_path = os.path.dirname(os.path.abspath(__file__))
+data = json.load(open(def_file_path + "/data.json", "r"))
 dataKeys = data.keys()
 
 def main(word):
