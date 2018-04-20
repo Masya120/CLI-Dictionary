@@ -12,5 +12,5 @@ Simplest method to use this app on a Linux computer is to save the files somewhe
 An example:
 ``` alias getdef="python ~/cli_dictionary/cli_dictionary.py```
 
-Then the app can be either be run by simply typing in your alias, which will then prompt for a word. Or typing in your alias and the word you want the definition for,
+Then the app can be be run by simply typing in your alias, which will then prompt for a word. Or by typing in your alias and the word you want the definition for,
 which will print out the definition if it is found.
